@@ -1,0 +1,5 @@
+path: "/uwu/scrapegraphai/uwu"
+method: "GET"
+extra:
+  python:
+    source: "endpoints/scrapegraphai.py"
