@@ -1,8 +1,5 @@
-name: searchscraper
-description: Search scraper endpoint
-inputs:
-  - name: query
-    type: string
-    required: true
-    description: Search query
-oauth: false
+path: "/searchscraper"
+method: "POST"
+extra:
+  python:
+    source: "endpoints/searchscraper.py"

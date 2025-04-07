@@ -11,4 +11,6 @@ settings:
       zh_Hans: 请输入你的 API key
       pt_BR: Please input your API key
 endpoints:
-  - endpoints/scrapegraphai.yaml
+  - endpoints/searchscraper.yaml
+  - endpoints/smartscraper.yaml
+  - endpoints/markdownify.yaml

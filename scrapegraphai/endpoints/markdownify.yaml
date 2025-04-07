@@ -1,8 +1,5 @@
-name: markdownify
-description: Markdown converter endpoint
-inputs:
-  - name: html
-    type: string
-    required: true
-    description: HTML content to convert
-oauth: false
+path: "/markdownify"
+method: "POST"
+extra:
+  python:
+    source: "endpoints/markdownify.py"

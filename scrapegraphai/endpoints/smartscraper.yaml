@@ -1,12 +1,5 @@
-name: smartscraper
-description: Smart scraper endpoint
-inputs:
-  - name: url
-    type: string
-    required: true
-    description: URL to scrape
-  - name: strategy
-    type: string
-    required: false
-    description: Scraping strategy
-oauth: false
+path: "/smartscraper"
+method: "POST"
+extra:
+  python:
+    source: "endpoints/smartscraper.py"

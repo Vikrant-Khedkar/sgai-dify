@@ -2,6 +2,9 @@ import time
 from typing import Mapping
 from werkzeug import Request, Response
 from dify_plugin import Endpoint
+from scrapegraph_py import Client
+
+
 
 
 class SearchScraperEndpoint(Endpoint):
@@ -10,8 +13,12 @@ class SearchScraperEndpoint(Endpoint):
         Invokes the search scraper endpoint.
         """
         def generator():
-            for i in range(10):
+            client = Client(api_key=settings["api_key"])
+            response = client.searchscraper(
+                user_prompt=r["user_prompt"]
+            )
+            for result in response["results"]:
                 time.sleep(1)
-                yield f"Search result {i} <br>"
+                yield f"{result['title']} <br>"
 
         return Response(generator(), status=200, content_type="text/html")

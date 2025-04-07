@@ -2,6 +2,7 @@ import time
 from typing import Mapping
 from werkzeug import Request, Response
 from dify_plugin import Endpoint
+from scrapegraph_py import Client
 
 
 class SmartScraperEndpoint(Endpoint):
@@ -10,8 +11,13 @@ class SmartScraperEndpoint(Endpoint):
         Invokes the smart scraper endpoint.
         """
         def generator():
-            for i in range(10):
+            client = Client(api_key=settings["api_key"])
+            response = client.smartscraper(
+                website_url=r["website_url"],
+                user_prompt=r["user_prompt"]
+            )
+            for result in response["results"]:
                 time.sleep(1)
-                yield f"Smart scrape result {i} <br>"
+                yield f"{result['title']} <br>"
 
         return Response(generator(), status=200, content_type="text/html")
