@@ -1,0 +1,8 @@
+name: searchscraper
+description: Search scraper endpoint
+inputs:
+  - name: query
+    type: string
+    required: true
+    description: Search query
+oauth: false
